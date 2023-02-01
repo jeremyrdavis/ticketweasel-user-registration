@@ -1,4 +1,4 @@
-package com.ticketweasel;
+package com.ticketweasel.users;
 
 import java.io.File;
 

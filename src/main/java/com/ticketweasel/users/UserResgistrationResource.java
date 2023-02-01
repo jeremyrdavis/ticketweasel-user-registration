@@ -1,4 +1,4 @@
-package com.ticketweasel;
+package com.ticketweasel.users;
 
 import io.smallrye.mutiny.Uni;
 import org.slf4j.Logger;

@@ -1,4 +1,4 @@
-package com.ticketweasel;
+package com.ticketweasel.users;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

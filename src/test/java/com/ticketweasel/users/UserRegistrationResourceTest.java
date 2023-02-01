@@ -1,7 +1,6 @@
-package com.ticketweasel;
+package com.ticketweasel.users;
 
 import io.quarkus.test.junit.QuarkusTest;
-import io.restassured.http.Header;
 import org.junit.jupiter.api.Test;
 
 import javax.ws.rs.core.MediaType;

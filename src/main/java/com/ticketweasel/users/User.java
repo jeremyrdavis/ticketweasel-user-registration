@@ -1,8 +1,11 @@
-package com.ticketweasel;
+package com.ticketweasel.users;
 
 import io.quarkus.hibernate.reactive.panache.PanacheEntity;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import java.util.ArrayList;
+import java.util.Collection;
 
 @Entity
 public class User extends PanacheEntity {
@@ -13,6 +16,9 @@ public class User extends PanacheEntity {
 
     protected String lastName;
 
+    @OneToMany
+    protected Collection<Ticket> tickets;
+
     protected User(final String email, final String firstName, final String lastName) {
         this.email = email;
         this.firstName = firstName;
@@ -21,6 +27,13 @@ public class User extends PanacheEntity {
 
     protected User() {
 
+    }
+
+    public void addTickets(Collection<Ticket> tickets) {
+        if (this.tickets == null) {
+            this.tickets = new ArrayList<>(tickets.size());
+        }
+        this.tickets.addAll(tickets);
     }
 
     public String getEmail() {
@@ -33,5 +46,9 @@ public class User extends PanacheEntity {
 
     public String getLastName() {
         return lastName;
+    }
+
+    public Collection<Ticket> getTickets() {
+        return tickets;
     }
 }

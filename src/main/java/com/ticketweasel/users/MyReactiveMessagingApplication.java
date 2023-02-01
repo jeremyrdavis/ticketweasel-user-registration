@@ -1,4 +1,4 @@
-package com.ticketweasel;
+package com.ticketweasel.users;
 
 import io.quarkus.runtime.StartupEvent;
 import org.eclipse.microprofile.reactive.messaging.*;
