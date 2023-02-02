@@ -29,6 +29,13 @@ public class User extends PanacheEntity {
 
     }
 
+    public void sellTickets(Order order) {
+
+        order.tickets.forEach(ticket -> {
+            this.getTickets().remove(ticket);
+        });
+    }
+
     public void addTickets(Collection<Ticket> tickets) {
         if (this.tickets == null) {
             this.tickets = new ArrayList<>(tickets.size());
@@ -50,5 +57,16 @@ public class User extends PanacheEntity {
 
     public Collection<Ticket> getTickets() {
         return tickets;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "email='" + email + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", tickets=" + tickets +
+                ", id=" + id +
+                '}';
     }
 }

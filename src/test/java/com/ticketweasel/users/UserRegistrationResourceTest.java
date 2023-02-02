@@ -16,7 +16,7 @@ public class UserRegistrationResourceTest {
     public void testHelloEndpoint() {
         with()
                 .header("Content-Type", MediaType.APPLICATION_JSON)
-                .body(new UserRecord("Lemmy", "Kilminster", "lemmy@motorhead.com"))
+                .body(new UserRecord(null, "Lemmy", "Kilminster", "lemmy@motorhead.com"))
                 .post("/register")
                 .then()
                 .statusCode(201)

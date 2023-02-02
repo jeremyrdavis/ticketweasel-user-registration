@@ -17,7 +17,7 @@ public class UserResource {
         if (user == null) {
             return Response.noContent().build();
         }else{
-            UserRecord userRecord = new UserRecord(user.firstName, user.lastName, user.email);
+            UserRecord userRecord = new UserRecord(user.id, user.firstName, user.lastName, user.email);
             return Response.ok(userRecord).build();
         }
     }
