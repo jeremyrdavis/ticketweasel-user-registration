@@ -43,6 +43,15 @@ public class User extends PanacheEntity {
         this.tickets.addAll(tickets);
     }
 
+    public void listTickets(ArrayList<Ticket> tickets) {
+
+        this.getTickets().forEach(ticket -> {
+            if (tickets.contains(ticket)) {
+                ticket.forSale = true;
+            }
+        });
+    }
+
     public String getEmail() {
         return email;
     }
@@ -69,4 +78,5 @@ public class User extends PanacheEntity {
                 ", id=" + id +
                 '}';
     }
+
 }

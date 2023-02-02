@@ -14,6 +14,8 @@ public class Ticket extends PanacheEntity {
     @JoinColumn(name = "owner_id")
     protected User owner;
 
+    boolean forSale;
+
     public Ticket() {
     }
 
@@ -25,6 +27,11 @@ public class Ticket extends PanacheEntity {
         Ticket ticket = (Ticket) o;
 
         return Objects.equals(id, ticket.id);
+    }
+
+    public boolean isForSale() {
+
+        return forSale;
     }
 
     @Override
@@ -39,4 +46,5 @@ public class Ticket extends PanacheEntity {
     public void setOwner(User owner) {
         this.owner = owner;
     }
+
 }
