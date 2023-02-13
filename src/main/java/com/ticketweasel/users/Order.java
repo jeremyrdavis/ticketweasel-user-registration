@@ -18,4 +18,12 @@ public class Order {
 
         return new Order(tickets, orderTotal);
     }
+
+    public Collection<Ticket> getTickets() {
+        return tickets;
+    }
+
+    public double getOrderTotal() {
+        return orderTotal;
+    }
 }

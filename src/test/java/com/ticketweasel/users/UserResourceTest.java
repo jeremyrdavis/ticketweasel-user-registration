@@ -7,20 +7,22 @@ import javax.ws.rs.core.MediaType;
 
 import static io.restassured.RestAssured.with;
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasItems;
 
 @QuarkusTest
-public class UserRegistrationResourceTest {
+public class UserResourceTest {
 
     @Test
-    public void testHelloEndpoint() {
+    public void testRegisteringUser() {
         with()
                 .header("Content-Type", MediaType.APPLICATION_JSON)
                 .body(new UserRecord(null, "Lemmy", "Kilminster", "lemmy@motorhead.com"))
-                .post("/register")
+                .post("/users/register")
                 .then()
                 .statusCode(201)
-                .body("$", hasItems("email", "firstName", "lastName"));
+                .assertThat()
+                .body("email", equalTo("lemmy@motorhead.com"));
     }
 
 }
