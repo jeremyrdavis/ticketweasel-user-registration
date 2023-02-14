@@ -58,4 +58,5 @@ public class UsersTest {
 
         return user;
     }
+
 }
